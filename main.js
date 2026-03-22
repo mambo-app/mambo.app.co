@@ -2,11 +2,13 @@
 
 const phone = document.getElementById('phone');
 const dynamicBg = document.getElementById('dynamicBg');
-const slidingPosters = document.getElementById('slidingPosters');
+const explorePosters = document.getElementById('explorePosters');
+const searchPosters = document.getElementById('searchPosters');
 const floatingModals = document.getElementById('floatingModals');
+const profilePosters = document.getElementById('profilePosters');
 const appMain = document.querySelector('.app-main');
 
-const totalSections = 10;
+const totalSections = 11;
 const sections = [];
 const images = [];
 
@@ -23,18 +25,19 @@ for (let i = 1; i <= totalSections; i++) {
 let currentRotX = 0; let currentRotY = 0; let currentRotZ = 0; let currentScale = 1;
 let targetRotX = 0;  let targetRotY = 0;  let targetRotZ = 0;  let targetScale = 1;
 
-// Color palette mapping based on 10 modes, scaled for profound depth (Liquid Glass)
+// Color palette mapping based on 11 modes
 const colors = [
-  { r: 10,  g: 5,   b: 20 },  // 0: Auth (Dark Cinematic)
-  { r: 40,  g: 15,  b: 80 },  // 1: Movie (Deep Violet)
-  { r: 10,  g: 40,  b: 80 },  // 2: Series (Deep Blue)
-  { r: 60,  g: 30,  b: 10 },  // 3: Anime (Deep Orange)
-  { r: 10,  g: 60,  b: 50 },  // 4: Discover (Deep Teal)
-  { r: 10,  g: 40,  b: 80 },  // 5: Search/Explore (Deep Blue)
-  { r: 60,  g: 15,  b: 15 },  // 6: Reviews (Deep Crimson/Red)
-  { r: 40,  g: 15,  b: 80 },  // 7: Messages (Deep Violet)
-  { r: 60,  g: 30,  b: 10 },  // 8: Profile (Deep Orange)
-  { r: 0,   g: 0,   b: 0 }    // 9: CTA (Pitch Black)
+  { r: 10,  g: 5,   b: 20 },  // 0: Auth
+  { r: 40,  g: 15,  b: 80 },  // 1: Movie
+  { r: 10,  g: 40,  b: 80 },  // 2: Series
+  { r: 60,  g: 30,  b: 10 },  // 3: Anime
+  { r: 10,  g: 60,  b: 50 },  // 4: Discover
+  { r: 10,  g: 40,  b: 80 },  // 5: Explore
+  { r: 25,  g: 10,  b: 60 },  // 6: Search (Deep Indigo)
+  { r: 60,  g: 15,  b: 15 },  // 7: Reviews
+  { r: 40,  g: 15,  b: 80 },  // 8: Messages
+  { r: 60,  g: 30,  b: 10 },  // 9: Profile
+  { r: 0,   g: 0,   b: 0 }    // 10: CTA
 ];
 
 function lerpColor(c1, c2, factor) {
@@ -54,7 +57,7 @@ function updatePhoneTransformAndBg(progress) {
   const safeIndex = Math.min(Math.floor(progress / sectionSize), totalSections - 1);
   const localProgress = (progress - (safeIndex * sectionSize)) / sectionSize;
 
-  // Background interpolation overlay between safeIndex and safeIndex+1 (clamped)
+  // Background interpolation
   const c1 = colors[safeIndex];
   const c2 = colors[Math.min(safeIndex + 1, colors.length - 1)];
   const bgColor = lerpColor(c1, c2, localProgress);
@@ -68,62 +71,70 @@ function updatePhoneTransformAndBg(progress) {
     }
   });
 
-  // Toggle Parallax Background Ranges
-  // Show sliding posters ONLY on Stage 6 (index 5)
-  if (safeIndex === 5) slidingPosters.classList.add('active');
-  else slidingPosters.classList.remove('active');
+  // Toggle Parallax Background Ranges (Optimized for 11 segments, zero overlap)
+  const step = 1 / totalSections;
+  
+  // Show explore posters for Stage 6 (Index 5)
+  const isP6 = progress >= (5 * step) && progress < (6 * step);
+  if (isP6) explorePosters.classList.add('active');
+  else explorePosters.classList.remove('active');
 
-  // Show review floaters ONLY on Stage 7 (index 6)
-  if (safeIndex === 6) floatingModals.classList.add('active');
+  // Show search posters for Stage 7 (Index 6)
+  const isP7 = progress >= (6 * step) && progress < (7 * step);
+  if (isP7) searchPosters.classList.add('active');
+  else searchPosters.classList.remove('active');
+
+  // Show review floaters for Stage 8 (Index 7)
+  const isP8 = progress >= (7 * step) && progress < (8 * step);
+  if (isP8) floatingModals.classList.add('active');
   else floatingModals.classList.remove('active');
 
-  // Hide phone temporarily on the CTA Section
-  if (safeIndex === 9) phone.parentElement.style.opacity = '0.1';
+  // Show profile floaters for Stage 10 (Index 9)
+  const isP10 = progress >= (9 * step) && progress < (10 * step);
+  if (isP10) profilePosters.classList.add('active');
+  else profilePosters.classList.remove('active');
+
+  // Hide phone temporarily on the CTA Section (Index 10)
+  if (safeIndex === 10) phone.parentElement.style.opacity = '0.1';
   else phone.parentElement.style.opacity = '1';
 
   // Define Keyframes per state mapping
   switch(safeIndex) {
     case 0: // Auth
       targetRotX = 0; targetRotY = 0; targetRotZ = 0; targetScale = 1.0;
-      activateImage(0);
       break;
     case 1: // Hero Movies
       targetRotX = 15; targetRotY = 25 - (localProgress * 10); targetRotZ = -5; targetScale = 1;
-      activateImage(1);
       break;
     case 2: // Series
       targetRotX = 5; targetRotY = -20 - (localProgress * 10); targetRotZ = 5; targetScale = 1;
-      activateImage(2);
       break;
     case 3: // Anime
       targetRotX = 10; targetRotY = 20 - (localProgress * 5); targetRotZ = -2; targetScale = 1;
-      activateImage(3);
       break;
     case 4: // Discover
       targetRotX = -5; targetRotY = 0; targetRotZ = 0; targetScale = 1.05;
-      activateImage(4);
       break;
-    case 5: // Explore/Search
+    case 5: // Explore
       targetRotX = 5; targetRotY = -15; targetRotZ = 2; targetScale = 1.05;
-      activateImage(5);
       break;
-    case 6: // Reviews & Discussions
+    case 6: // Search
+      targetRotX = 10; targetRotY = 15; targetRotZ = -3; targetScale = 1.05;
+      break;
+    case 7: // Reviews & Discussions
       targetRotX = 5; targetRotY = 20; targetRotZ = -4; targetScale = 1.0;
-      activateImage(6);
       break;
-    case 7: // Messages
+    case 8: // Messages
       targetRotX = -5; targetRotY = -15; targetRotZ = 3; targetScale = 1.0;
-      activateImage(7);
       break;
-    case 8: // Profile
+    case 9: // Profile
       targetRotX = 0; targetRotY = -10; targetRotZ = 0; targetScale = 1.1;
-      activateImage(8);
       break;
-    case 9: // CTA (Flatten it out)
+    case 10: // CTA
       targetRotX = 0; targetRotY = 0; targetRotZ = 0; targetScale = 0.9;
-      activateImage(9); 
       break;
   }
+  activateImage(safeIndex);
 }
 
 function activateImage(index) {
