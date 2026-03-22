@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mambo | The Ultimate Application</title>
+    <!-- Mambo Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=League+Spartan:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <!-- Dynamic Background Layer -->
+    <div class="dynamic-bg" id="dynamicBg"></div>
+    <div class="liquid-glass-overlay"></div>
+    
+    <div class="parallax-container">
+      <!-- Stage 6: Sliding Posters (Search) -->
+      <div class="sliding-posters parallax-layer" id="slidingPosters">
+        <img class="float-poster style-1" src="/assets/mambo app images/explore screen 1.jpg" alt="Explore 1">
+        <img class="float-poster style-2" src="/assets/mambo app images/collection screen.jpg" alt="Collection">
+        <img class="float-poster style-3" src="/assets/mambo app images/explore screen 2.jpg" alt="Explore 2">
+        <img class="float-poster style-4" src="/assets/mambo app images/mode screen.jpg" alt="Mode Info">
+      </div>
+
+      <!-- Stage 7: Floating Review Modals (Discuss) -->
+      <div class="floating-modals parallax-layer" id="floatingModals">
+        <img class="float-modal style-5" src="/assets/mambo app images/review modal.jpg" alt="Review Modal">
+        <img class="float-modal style-6" src="/assets/mambo app images/discussion screen.jpg" alt="Discussion">
+        <img class="float-modal style-7" src="/assets/mambo app images/recommend modal.jpg" alt="Recommend Modal">
+      </div>
+      
+    </div>
+
+    <main class="app-main">
+      <div class="sticky-viewport">
+        
+        <!-- Extrapolating to 10 Text Sections -->
+        <div class="scroll-sections">
+          
+          <!-- Stage 1: Auth/Gateway -->
+          <div class="section-text" id="sec-1">
+            <img class="mambo-logo" src="/assets/MAMBO LOGO.png" alt="Mambo Logo">
+            <h1 class="spartan-title mt-4">The ultimate app <br>for <span class="gradient-text">everything.</span></h1>
+            <p class="dm-sans-sub">Stop switching between apps. Enter a unified social platform specifically built for cinephiles.</p>
+            
+            <div class="mobile-only-wrap">
+              <img src="/assets/mambo app images/landing screen.jpg" alt="Mambo UI" class="mobile-only-img">
+            </div>
+          </div>
+          
+          <!-- Stage 2: Hero Movies / Unified Modes for Mobile -->
+          <div class="section-text right-aligned" id="sec-2">
+            <h1 class="spartan-title"><span class="gradient-text">Unified</span> <br>Experience.</h1>
+            <p class="dm-sans-sub">Immerse yourself in three distinct modes. Every gradient matches your mood.</p>
+            <div class="mobile-only-wrap">
+              <div class="modes-cluster">
+                <img src="/assets/mambo app images/home screen(series mode).jpg" alt="Series Mode" class="mode-img mode-back-left">
+                <img src="/assets/mambo app images/home screen (anime mode).jpg" alt="Anime Mode" class="mode-img mode-back-right">
+                <img src="/assets/mambo app images/home screen (movie mode).jpg" alt="Movie Mode" class="mode-img mode-front">
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 3: Series Mode (Hidden on Mobile) -->
+          <div class="section-text mobile-hide" id="sec-3">
+            <h1 class="spartan-title">Binge-Worthy <br><span class="gradient-text-blue">Series.</span></h1>
+            <p class="dm-sans-sub">Toggle effortlessly into Series Mode with deep blue transitions built for long watching sessions.</p>
+          </div>
+          
+          <!-- Stage 4: Anime Mode (Hidden on Mobile) -->
+          <div class="section-text right-aligned mobile-hide" id="sec-4">
+            <h1 class="spartan-title">Explosive <br><span class="gradient-text-orange">Anime.</span></h1>
+            <p class="dm-sans-sub">Engage the fiery atmospheric shift when switching to Anime mode, transforming your entire app.</p>
+          </div>
+
+          <!-- Stage 5: Discover Screen (Updated with Duo) -->
+          <div class="section-text" id="sec-5">
+            <h1 class="spartan-title">Swipe up to <br><span class="gradient-text-teal">Discover.</span></h1>
+            <p class="dm-sans-sub">The <b>Anticipated Section</b> ensures you never miss a beat. <b>Mark as Interested</b> in your favorite upcoming content.</p>
+            <div class="mobile-only-wrap">
+              <div class="discover-duo">
+                <img src="/assets/mambo app images/discover screen 2.jpg" alt="Discover 2" class="disco-img disco-back">
+                <img src="/assets/mambo app images/discover screen 1.jpg" alt="Discover 1" class="disco-img disco-front">
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 6: Search & Explore -->
+          <div class="section-text right-aligned" id="sec-6">
+            <h1 class="spartan-title">Find <br>your <span class="gradient-text-blue">vibe.</span></h1>
+            <p class="dm-sans-sub">Powerful search dynamics. Find the exact aesthetics you want and curated collections tailored to you.</p>
+            <div class="mobile-only-wrap">
+              <div class="mobile-bg-cluster">
+                <img src="/assets/mambo app images/explore screen 1.jpg" alt="Bg 1" class="m-float m-pos-1">
+                <img src="/assets/mambo app images/collection screen.jpg" alt="Bg 2" class="m-float m-pos-2">
+              </div>
+              <img src="/assets/mambo app images/seach screen.jpg" alt="Search UI" class="mobile-only-img">
+            </div>
+          </div>
+
+          <!-- Stage 7: Reviews & Discussions -->
+          <div class="section-text" id="sec-7">
+            <h1 class="spartan-title">Rate and <br><span class="gradient-text-orange">Discuss.</span></h1>
+            <p class="dm-sans-sub">Recommend the movie to your friends! Write 5-star reviews, start discussions, tag friends, and mark spoilers seamlessly overlaid on the content.</p>
+            <div class="mobile-only-wrap">
+              <div class="mobile-bg-cluster">
+                <img src="/assets/mambo app images/review modal.jpg" alt="Bg 3" class="m-float m-pos-3">
+                <img src="/assets/mambo app images/discussion screen.jpg" alt="Bg 4" class="m-float m-pos-4">
+                <img src="/assets/mambo app images/recommend modal.jpg" alt="Bg 5" class="m-float m-pos-5">
+              </div>
+              <img src="/assets/mambo app images/review screen.jpg" alt="Review UI" class="mobile-only-img">
+            </div>
+          </div>
+
+          <!-- Stage 8: Messages -->
+          <div class="section-text right-aligned" id="sec-8">
+            <h1 class="spartan-title">Talk to <br><span class="gradient-text-blue">Friends.</span></h1>
+            <p class="dm-sans-sub">Share what you just watched and dive into community-driven chats without ever leaving the platform.</p>
+            <div class="mobile-only-wrap"><img src="/assets/mambo app images/message chat screen.jpg" alt="Messages UI" class="mobile-only-img"></div>
+          </div>
+
+          <!-- Stage 9: Profile -->
+          <div class="section-text" id="sec-9">
+            <h1 class="spartan-title">Premium <br><span class="gradient-text-orange">Profiles.</span></h1>
+            <p class="dm-sans-sub">Flaunt your exquisite taste. Showcase your favorite actors, directors, and critical reviews instantly.</p>
+            <div class="mobile-only-wrap"><img src="/assets/mambo app images/profile (favouraites tab).jpg" alt="Profile UI" class="mobile-only-img"></div>
+          </div>
+
+          <!-- Stage 10: CTA -->
+          <div class="section-text text-center" id="sec-10">
+            <h1 class="spartan-title" style="letter-spacing:-1px;">The Future is Here.</h1>
+            <p class="dm-sans-sub pulse-text">Mambo is an exclusive platform. You need an invite key to enter.</p>
+            
+            <!-- Interactive Invite Module -->
+            <div class="invite-module mt-4">
+              <div class="invite-content">
+                 <span class="invite-label">YOUR EXCLUSIVE KEY</span>
+                 <span class="invite-key">B3G1N</span>
+              </div>
+              <div class="invite-blur">
+                 <span class="blur-text">Tap to Reveal Invite Key</span>
+              </div>
+            </div>
+
+            <a href="/mambo.v3.apk" download class="btn premium-btn mt-6">Download APK</a>
+            <div class="mobile-only-wrap"><img src="/assets/mambo app images/log in screen.jpg" alt="CTA UI" class="mobile-only-img" style="margin-top: 40px;"></div>
+          </div>
+
+
+        </div>
+
+        <!-- 3D Phone Container -->
+        <div class="phone-container">
+          <div class="phone-3d" id="phone">
+            <div class="phone-bezel">
+              <div class="dynamic-island"></div>
+            </div>
+            
+            <div class="phone-screen">
+              <img class="mambo-img active" id="img-1" src="/assets/mambo app images/landing screen.jpg" alt="Gateway">
+              <img class="mambo-img" id="img-2" src="/assets/mambo app images/home screen (movie mode).jpg" alt="Movies">
+              <img class="mambo-img" id="img-3" src="/assets/mambo app images/home screen(series mode).jpg" alt="Series">
+              <img class="mambo-img" id="img-4" src="/assets/mambo app images/home screen (anime mode).jpg" alt="Anime">
+              <img class="mambo-img" id="img-5" src="/assets/mambo app images/discover screen 1.jpg" alt="Discover">
+              <img class="mambo-img" id="img-6" src="/assets/mambo app images/seach screen.jpg" alt="Search">
+              <img class="mambo-img" id="img-7" src="/assets/mambo app images/review screen.jpg" alt="Reviews">
+              <img class="mambo-img" id="img-8" src="/assets/mambo app images/message chat screen.jpg" alt="Messages">
+              <img class="mambo-img" id="img-9" src="/assets/mambo app images/profile (favouraites tab).jpg" alt="Profile Favoriites">
+              <img class="mambo-img" id="img-10" src="/assets/mambo app images/log in screen.jpg" alt="Login CTA">
+            </div> 
+          </div>
+        </div>
+      </div>
+      
+      <!-- Expanded Scroll Spacer for 10 Sections -->
+      <div class="scroll-spacer"></div>
+    </main>
+
+    <!-- Premium Credits Footer -->
+    <footer class="mambo-footer">
+      <div class="footer-container">
+        <div class="footer-brand text-center">
+          <img class="mambo-logo-footer" src="/assets/MAMBO LOGO.png" alt="Mambo Logo">
+          <p class="dm-sans-sub" style="font-size: 1.2rem; margin-top: 16px;">Experience everything in one place.</p>
+          <a href="mailto:mambo.app.co@gmail.com" class="contact-email mt-4">mambo.app.co@gmail.com</a>
+        </div>
+
+        <div class="creator-showcase mt-6">
+          <h3 class="spartan-title text-center" style="font-size: 2rem; color: var(--text-muted); margin-bottom: 32px;">The Visionary Behind Mambo</h3>
+          
+          <a href="https://linkedin.com/in/laksh-chawla-1135b7280" target="_blank" class="super-creator-card tilt-element">
+            <div class="creator-inner">
+              <div class="creator-avatar">LC</div>
+              <div class="creator-details">
+                <h3 class="spartan-title" style="font-size: 2.5rem; margin-bottom: 4px;">Laksh Chawla</h3>
+                <span class="dm-sans-sub" style="color: var(--text-muted); font-weight: 600; letter-spacing: 1px;">CREATOR & ADMIN</span>
+              </div>
+              <div class="linkedin-btn">Connect on LinkedIn ➔</div>
+            </div>
+          </a>
+
+          <div class="supporter-badge">
+             <span class="dm-sans-sub text-muted" style="font-size: 14px;">Supported by <a href="https://linkedin.com/in/abhinav-pundir-239990399" target="_blank" class="supporter-link">Abhinav Pundir</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Mambo App. All Rights Reserved.
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
