@@ -5,13 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mambo | The Ultimate Application</title>
     <!-- Mambo Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=League+Spartan:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=League+Spartan:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
+    <!-- Premium UI Layer -->
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="noise-overlay"></div>
+    <div class="glow-blob blob-1" id="blob1"></div>
+    <div class="glow-blob blob-2" id="blob2"></div>
+    <div class="liquid-glass-overlay"></div>
+    
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+      <div class="marquee-content">
+        <div class="marquee-item"><span class="update-tag">NEW UPDATE</span> Mambo v1.0.0 is live! Download the latest APK for the best experience. ➔</div>
+        <div class="marquee-item"><span class="update-tag">NEW UPDATE</span> Mambo v1.0.0 is live! Download the latest APK for the best experience. ➔</div>
+        <div class="marquee-item"><span class="update-tag">NEW UPDATE</span> Mambo v1.0.0 is live! Download the latest APK for the best experience. ➔</div>
+        <div class="marquee-item"><span class="update-tag">NEW UPDATE</span> Mambo v1.0.0 is live! Download the latest APK for the best experience. ➔</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="mambo-nav" id="mainNav">
+      <a href="#" class="nav-logo-link">
+        <img src="/assets/MAMBO LOGO.png" alt="Mambo" class="nav-logo">
+      </a>
+      <div class="nav-actions">
+        <a href="#sec-1" class="nav-link">Home</a>
+        <a href="#sec-5" class="nav-link">Discover</a>
+        <a href="#sec-10" class="nav-link">Profile</a>
+        <a href="/maqmbo.v1.0.0.apk" download class="nav-download-btn">Download APK</a>
+      </div>
+    </nav>
+
     <!-- Dynamic Background Layer -->
     <div class="dynamic-bg" id="dynamicBg"></div>
-    <div class="liquid-glass-overlay"></div>
     
     <div class="parallax-container">
       <!-- Stage 6: Explore Posters -->
@@ -77,6 +106,23 @@
             <h1 class="spartan-title mt-4">The ultimate app <br>for <span class="gradient-text">everything.</span></h1>
             <p class="dm-sans-sub">Stop switching between apps. Enter a unified social platform specifically built for cinephiles.</p>
             
+            <div class="cta-group mt-6">
+              <a href="/maqmbo.v1.0.0.apk" download class="btn premium-btn">Get the App</a>
+            </div>
+
+            <div class="trust-badges">
+              <div class="user-avatars">
+                <div class="avatar-blob" style="background: #ff5722;">LC</div>
+                <div class="avatar-blob" style="background: #4caf50;">AP</div>
+                <div class="avatar-blob" style="background: #2196f3;">JD</div>
+                <div class="avatar-blob" style="background: #9c27b0;">+50k</div>
+              </div>
+              <div class="trust-info">
+                <div class="trust-text">Join 50,000+ Cinephiles</div>
+                <div class="trust-stars">★★★★★ <span style="color: white; font-size: 0.7rem; opacity: 0.6;">(4.9/5)</span></div>
+              </div>
+            </div>
+
             <div class="mobile-only-wrap">
               <img src="/assets/mambo app images/landing screen.jpg" alt="Mambo UI" class="mobile-only-img">
             </div>
@@ -168,23 +214,53 @@
             <div class="mobile-only-wrap"><img src="/assets/mambo app images/profile (favouraites tab).jpg" alt="Profile UI" class="mobile-only-img"></div>
           </div>
 
-          <!-- Stage 11: CTA -->
-          <div class="section-text text-center" id="sec-11">
-            <h1 class="spartan-title" style="letter-spacing:-1px;">The Future is Here.</h1>
-            <p class="dm-sans-sub pulse-text">Mambo is an exclusive platform. You need an invite key to enter.</p>
-            
-            <div class="invite-module mt-4">
-              <div class="invite-content">
-                 <span class="invite-label">YOUR EXCLUSIVE KEY</span>
-                 <span class="invite-key">B3G1N</span>
+          <!-- Stage 11: Features Community -->
+          <div class="section-text" id="sec-11" style="width: 100%; left: 0; padding: 0 5%;">
+            <h1 class="spartan-title text-center mb-6" style="margin-bottom: 40px;">Built for the <span class="gradient-text">Inner Circle.</span></h1>
+            <div class="bento-section">
+              <div class="bento-item item-large">
+                <div>
+                  <div class="bento-icon">🎬</div>
+                  <h3>A True Cinephile Community</h3>
+                  <p>Mambo isn't just an app; it's a movement. Connect with real people who share your obsession with storytelling and cinematography.</p>
+                </div>
+                <img src="/assets/mambo app images/discussion screen.jpg" alt="Community" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; margin-top: 20px;">
               </div>
-              <div class="invite-blur">
-                 <span class="blur-text">Tap to Reveal Invite Key</span>
+              <div class="bento-item">
+                <div>
+                  <div class="bento-icon">📊</div>
+                  <h3>Cinema DNA Tracker</h3>
+                  <p>Track every movie, series, and anime with precision. Visualize your taste with our "Wrapped" statistics.</p>
+                </div>
+              </div>
+              <div class="bento-item">
+                <div>
+                  <div class="bento-icon">💬</div>
+                  <h3>Zero Noise. Pure Talk.</h3>
+                  <p>Skip the algorithms. Dive into deep discussions and reviews curated by real users, not bots.</p>
+                </div>
+              </div>
+              <div class="bento-item item-medium">
+                <div style="display: flex; align-items: center; gap: 20px;">
+                  <div class="bento-icon" style="margin-bottom: 0;">🌐</div>
+                  <div>
+                    <h3>Open to Everyone</h3>
+                    <p>No more invite keys. Just sign in with your Google account and start your journey.</p>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
 
-            <a href="/mambo.v1.0.0.apk" download class="btn premium-btn mt-6">Download APK</a>
-            <div class="mobile-only-wrap"><img src="/assets/mambo app images/log in screen.jpg" alt="CTA UI" class="mobile-only-img" style="margin-top: 40px;"></div>
+          <!-- Stage 12: Final Vision -->
+          <div class="section-text text-center" id="sec-12">
+            <h1 class="spartan-title" style="letter-spacing:-1px;">Join the Revolution.</h1>
+            <p class="dm-sans-sub">Mambo is officially live. Sign in with Google to instantly connect with a global community of cinephiles.</p>
+            
+            <div class="final-actions mt-6" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+              <a href="/maqmbo.v1.0.0.apk" download class="btn premium-btn">Download Mambo APK</a>
+              <p class="dm-sans-sub" style="font-size: 0.9rem; opacity: 0.6;">Secure login with Google. Available now for Android.</p>
+            </div>
           </div>
 
 
@@ -209,13 +285,14 @@
               <img class="mambo-img" id="img-9" src="/assets/mambo app images/message chat screen.jpg" alt="Messages">
               <img class="mambo-img" id="img-10" src="/assets/mambo app images/profile (favouraites tab).jpg" alt="Profile Favoriites">
               <img class="mambo-img" id="img-11" src="/assets/mambo app images/log in screen.jpg" alt="Login CTA">
+              <img class="mambo-img" id="img-12" src="/assets/mambo app images/log in screen.jpg" alt="CTA Final">
             </div> 
           </div>
         </div>
       </div>
       
-      <!-- Expanded Scroll Spacer for 11 Sections -->
-      <div class="scroll-spacer" style="height: 1100vh;"></div>
+      <!-- Expanded Scroll Spacer for 12 Sections -->
+      <div class="scroll-spacer" style="height: 1200vh;"></div>
     </main>
 
     <!-- Premium Credits Footer -->

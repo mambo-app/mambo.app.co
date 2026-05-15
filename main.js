@@ -7,8 +7,12 @@ const searchPosters = document.getElementById('searchPosters');
 const floatingModals = document.getElementById('floatingModals');
 const profilePosters = document.getElementById('profilePosters');
 const appMain = document.querySelector('.app-main');
+const cursor = document.getElementById('cursor');
+const mainNav = document.getElementById('mainNav');
+const blob1 = document.getElementById('blob1');
+const blob2 = document.getElementById('blob2');
 
-const totalSections = 11;
+const totalSections = 12;
 const sections = [];
 const images = [];
 
@@ -37,7 +41,8 @@ const colors = [
   { r: 60,  g: 15,  b: 15 },  // 7: Reviews
   { r: 40,  g: 15,  b: 80 },  // 8: Messages
   { r: 60,  g: 30,  b: 10 },  // 9: Profile
-  { r: 0,   g: 0,   b: 0 }    // 10: CTA
+  { r: 20,  g: 10,  b: 40 },  // 10: Bento Features
+  { r: 0,   g: 0,   b: 0 }    // 11: CTA
 ];
 
 function lerpColor(c1, c2, factor) {
@@ -94,8 +99,8 @@ function updatePhoneTransformAndBg(progress) {
   if (isP10) profilePosters.classList.add('active');
   else profilePosters.classList.remove('active');
 
-  // Hide phone temporarily on the CTA Section (Index 10)
-  if (safeIndex === 10) phone.parentElement.style.opacity = '0.1';
+  // Hide phone temporarily on Bento (10) and CTA Section (11)
+  if (safeIndex >= 10) phone.parentElement.style.opacity = '0.1';
   else phone.parentElement.style.opacity = '1';
 
   // Define Keyframes per state mapping
@@ -130,7 +135,10 @@ function updatePhoneTransformAndBg(progress) {
     case 9: // Profile
       targetRotX = 0; targetRotY = -10; targetRotZ = 0; targetScale = 1.1;
       break;
-    case 10: // CTA
+    case 10: // Bento
+      targetRotX = 0; targetRotY = 0; targetRotZ = 0; targetScale = 0.5;
+      break;
+    case 11: // CTA
       targetRotX = 0; targetRotY = 0; targetRotZ = 0; targetScale = 0.9;
       break;
   }
@@ -154,13 +162,18 @@ function animate() {
   
   updatePhoneTransformAndBg(progress);
   
+  // Navbar Scroll Logic
+  if (scrollY > 50) mainNav.classList.add('scrolled');
+  else mainNav.classList.remove('scrolled');
+  
   // NATIVE 3D STACK SCROLL (NATIVE MOBILE CSS PARALLAX)
   if (isMobile) {
     // 3D physics removed as requested for smoother native feel
   }
   
-  currentRotX = lerp(currentRotX, targetRotX, 0.08);
-  currentRotY = lerp(currentRotY, targetRotY, 0.08);
+  // Smoothly interpolate towards targets
+  currentRotX = lerp(currentRotX, targetRotX + mouseOffset.y, 0.08);
+  currentRotY = lerp(currentRotY, targetRotY + mouseOffset.x, 0.08);
   currentRotZ = lerp(currentRotZ, targetRotZ, 0.08);
   currentScale = lerp(currentScale, targetScale, 0.08);
   
@@ -175,14 +188,34 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
+// Mouse Follow for 3D Phone and Custom Cursor
+let mouseOffset = { x: 0, y: 0 };
+window.addEventListener('mousemove', (e) => {
+  // Custom Cursor
+  if (cursor) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  }
+
+  // 3D Phone Tilt
+  const xPct = (e.clientX / window.innerWidth - 0.5) * 2;
+  const yPct = (e.clientY / window.innerHeight - 0.5) * 2;
+  mouseOffset.x = xPct * 10; // Max 10 degrees tilt
+  mouseOffset.y = -yPct * 10;
+
+  // Glow Blob Movement
+  if (blob1) blob1.style.transform = `translate(${xPct * 50}px, ${yPct * 50}px)`;
+  if (blob2) blob2.style.transform = `translate(${-xPct * 30}px, ${-yPct * 30}px)`;
+});
+
+// Cursor Hover Effects
+document.querySelectorAll('a, button, .invite-module').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+
 animate();
 
-// Handle global interactions (Mouse follow effect & Invite Reveal)
-document.querySelectorAll('.invite-module').forEach(mod => {
-  mod.addEventListener('click', function() {
-    this.classList.add('revealed');
-  });
-});
 
 // --- 3D Magnetic Tilt for Footer Creator Cards ---
 document.querySelectorAll('.tilt-element').forEach(el => {
