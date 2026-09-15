@@ -60,7 +60,7 @@
     if(b.hasAttribute('data-download')) {
       const url=window.MAMBO_CONFIG.apkUrl.trim();
       if(!url) return A.openModal('<div class="modal-standard"><p class="caps accent">MAMBO FOR ANDROID</p><h2 id="modalHeading">Your next obsession.<br>Soon in your pocket.</h2><p class="intro-copy">The APK download has not been added to this website yet. Explore the working preview while the Android download is being prepared.</p><button class="btn primary" id="apkExplore">Explore Mambo ↗</button></div>','download'), $('#apkExplore').onclick=()=>{A.closeModal();$('#app').scrollIntoView({behavior:A.reduced?'instant':'smooth'});};
-      try { const target=new URL(url,location.href);if(!['https:','http:','file:'].includes(target.protocol))throw Error();const link=document.createElement('a');link.href=target.href;link.download='mambo.v1.0.5.6.apk';link.rel='noopener';document.body.appendChild(link);link.click();link.remove(); } catch {A.toast('The APK download link is not valid yet.');}
+      try { const target=new URL(url,location.href);if(!['https:','http:','file:'].includes(target.protocol))throw Error();const link=document.createElement('a');link.href=target.href;link.download='mambo.v1.0.5.7.apk';link.rel='noopener';document.body.appendChild(link);link.click();link.remove(); } catch {A.toast('The APK download link is not valid yet.');}
     } else if(b.dataset.hub) navigate(b.dataset.hub);
     else if(b.dataset.hubTag){tag=b.dataset.hubTag;render();}
     else if(b.dataset.shelf) document.getElementById(b.dataset.shelf)?.scrollBy({left:Number(b.dataset.step)*450,behavior:A.reduced?'instant':'smooth'});
@@ -82,6 +82,6 @@
   $('#hubViewport').addEventListener('touchstart',e=>{touch=e.touches.length===1&&!e.target.closest('button,input,textarea,select,a,.hub-poster-row')?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null;},{passive:true});
   $('#hubViewport').addEventListener('touchend',e=>{if(!touch)return;const t=e.changedTouches[0],dx=t.clientX-touch.x,dy=t.clientY-touch.y;touch=null;if(Math.abs(dx)>75&&Math.abs(dx)>Math.abs(dy)*1.7)step(dx<0?1:-1);},{passive:true});
   $('#hubViewport').addEventListener('touchcancel',()=>touch=null,{passive:true});
-  if(window.MAMBO_CONFIG.apkUrl.trim())$('#apkStatus').textContent='Android APK v1.0.5.6 · Direct download';
+  if(window.MAMBO_CONFIG.apkUrl.trim())$('#apkStatus').textContent='Android APK v1.0.5.7 · Direct download';
   render();
 })();

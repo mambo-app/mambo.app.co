@@ -33,9 +33,9 @@ try {
 
 try {
   await mkdir('public', { recursive: true });
-  await copyFile('mambo apk/mambo.v1.0.5.6.apk', 'public/mambo.v1.0.5.6.apk');
-  await copyFile('mambo apk/mambo.v1.0.5.6.apk', 'public/mambo.apk');
-  console.log('Copied mambo.v1.0.5.6.apk to public/');
+  await copyFile('mambo apk/mambo.v1.0.5.7.apk', 'public/mambo.v1.0.5.7.apk');
+  await copyFile('mambo apk/mambo.v1.0.5.7.apk', 'public/mambo.apk');
+  console.log('Copied mambo.v1.0.5.7.apk to public/');
 } catch (e) {
   console.warn('Warning copying APK:', e.message);
 }
