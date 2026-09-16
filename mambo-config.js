@@ -1,5 +1,5 @@
-// APK SETUP: replace the empty string with your APK URL or './mambo.v1.0.5.7.apk'.
-window.MAMBO_CONFIG = { apkUrl: './mambo.v1.0.5.7.apk' };
+// APK SETUP: replace the empty string with your APK URL or './mambo.v1.0.6.1.apk'.
+window.MAMBO_CONFIG = { apkUrl: './mambo.v1.0.6.1.apk' };
 
 (() => {
   let preference = 'auto';
